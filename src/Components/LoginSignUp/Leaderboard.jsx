@@ -100,9 +100,16 @@ const firstName = location.state && location.state.firstName;
         <button className='submit' type="submit" style={{padding:'20px'}}> Submit</button>
         </label>
         </div>
-      </form >
+        </form>
       <div>
-      <div className='header'>How to get points 🤔</div>
+     
+      </div>
+    </div>
+  );
+};
+
+export default Scoreboard;
+/**<div className='header'>How to get points 🤔</div>
         <div className="container2">
             <div className="row">
               <span className="name"><b>Action</b></span>
@@ -153,11 +160,5 @@ const firstName = location.state && location.state.firstName;
               <span className="score">-1</span>
             </div>
             
-         
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Scoreboard;
+        
+        </div> */

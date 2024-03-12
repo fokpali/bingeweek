@@ -102,7 +102,21 @@
     cursor: pointer;
     margin: auto;
 }
-
+.signlogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    color: white;
+    background: #4A0C82;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: auto;
+    margin-right: 15px; 
+}
 .gray{
     background: #EAEAEA;
     color: #676767
@@ -135,10 +149,6 @@ html {
     color: #fff;
 }
 
-body {
-    min-height: 100vh;
-    background-color: dodgerblue;
-}
 
 .App {
   display: flex;

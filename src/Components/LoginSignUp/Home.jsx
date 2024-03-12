@@ -59,10 +59,10 @@ const Home = () => {
       <h2>&nbsp;Binge Week 2024🎉</h2>
       <div style={{ display: 'flex', flexDirection: 'row' , padding:'20px'}}>
         <Link to="/signup">
-        <button className='submit' style={{padding:'20px'}}>Sign Up</button>
+        <button className='signlogin' style={{padding:'20px'}}>Sign Up</button>
         </Link>
               <Link to="/login">
-          <button className='submit' style={{padding:'20px'}}>Login</button>
+          <button className='signlogin' style={{padding:'20px'}}>Login</button>
         </Link>
       </div>
       <div>
