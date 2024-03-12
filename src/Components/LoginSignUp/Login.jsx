@@ -53,16 +53,14 @@ const Login = () => {
         });
      
     } catch (error) {
-      setError(error.message); // Set error message if login fails
+      setError("🛈 Login information incorrect"); // Set error message if login fails
     }
   };
 
   return (
     <div>
      <h2>&nbsp;Binge Week 2024🎉</h2>
-      <div className='header'>Login</div>
-      {error && <p>Login Error, please enter correct email and password</p>}
-      
+      <div className='header' style={{fontSize:"30px"}}>Login</div>
           <form onSubmit={handleLogin}>
           <div className="inputs2">
             
@@ -84,8 +82,10 @@ const Login = () => {
               />
            
             <button className='submit' type="submit">Login</button>
+            {error && <div className="err">{error}</div>}
             </div>
           </form>
+          
           <div>
           <br></br>
         

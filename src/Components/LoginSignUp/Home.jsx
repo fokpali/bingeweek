@@ -42,7 +42,7 @@ const Home = () => {
     return (
       <div>
         <div className='header'><b>Leaderboard</b></div>
-        <div className="container2">
+        <div className='container2'>
           {top5Scores.map((entry, index) => (
             <div key={index} className="row">
               <span className="name">{entry.name}</span>

@@ -87,7 +87,7 @@ const SignUp = () => {
       
     } catch (error) {
       // Handle sign up error
-      setError("Enter a valid email and password over 6 characters");
+      setError("🛈 Enter a valid email and password over 6 characters");
       console.error('Sign up error:', error.message);
     }
   };
@@ -95,7 +95,7 @@ const SignUp = () => {
   return (
     <div>
      <h2>&nbsp;Binge Week 2024🎉</h2>
-    <div className='header'><b>Sign Up</b></div>
+    <div className='header' style={{fontSize:"30px"}}>Sign Up</div>
     <div className="inputs2">
       <input className="input"
         type="text"
@@ -116,7 +116,7 @@ const SignUp = () => {
         placeholder="Password"
       />
       <button className="submit" onClick={handleSignUp}>Sign Up</button>
-      {error && <p>{error}</p>}
+      {error && <div className="err">{error}</div>}
       
       
       </div>

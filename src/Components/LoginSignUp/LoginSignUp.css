@@ -33,19 +33,21 @@
 
 .inputs{
     margin-top: 55px;
-    margin-left: 20px;
     display: flex;
     flex-direction:row;
     gap: 25px;
 }
 .inputs2{
     margin-top: 55px;
-    margin-left: 20px;
     display: flex;
     flex-direction:column;
     gap: 25px;
 }
-
+.err{
+    font-size: 14px;
+    margin: auto;
+    
+}
 .input{
     display: flex;
     align-items: left;
@@ -234,11 +236,15 @@ button {
 .container2{
     display: flex;
     flex-direction: column;
-    margin: auto;
-    width: 700px;
+    margin: 5%;
+    width: 90%;
     padding-left: 20px;
     padding-right: 20px;
     background: white;
-    padding-bottom: 30px;
     color: #4A0C82;
+    
+}
+
+.body{
+    background-color: blue;
 }

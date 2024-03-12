@@ -77,6 +77,7 @@ const firstName = location.state && location.state.firstName;
       <div>
         <div className='header'><b>Leaderboard</b></div>
         <div className="container2">
+        <div>hi</div>
           {top5Scores.map((entry, index) => (
             <div key={index} className="row">
               <span className="name">{entry.name}</span>
@@ -91,18 +92,17 @@ const firstName = location.state && location.state.firstName;
     <div>
       <h2>&nbsp;Binge Week 2024🎉</h2>
       <form onSubmit={handleSubmit}>
-      <div className='inputs'>
-        <label>
+      <div className='inputs' style={{flexDirection:"column"}} >
+        <label style={{flexDirection:"column", margin:"auto"}}>
           Score:
-          <input className='input' type="number" value={score} onChange={(e) => setScore(e.target.value)} />
+          <input className='input' style={{flexDirection:"column"}} type="number" value={score} onChange={(e) => setScore(e.target.value)} />
         </label>
-        <label><br></br>
-        <button className='submit' type="submit" style={{padding:'20px'}}> Submit</button>
+        <label style={{flexDirection:"column"}}>
+        <button className='submit' style={{flexDirection:"column", padding:'20px'}}type="submit"> Submit</button>
         </label>
         </div>
         </form>
       <div>
-     
       </div>
     </div>
   );
