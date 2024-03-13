@@ -72,7 +72,7 @@ const firstName = location.state && location.state.firstName;
 
       }
       setScore('');
-      fetchScores(); // Refresh scoreboard after submission
+      //fetchScores(); // Refresh scoreboard after submission
     } catch (error) {
       console.error('Error submitting score:', error);
     }
