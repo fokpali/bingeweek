@@ -103,6 +103,38 @@
     font-weight: 700;
     cursor: pointer;
     margin: auto;
+    border:2px 2px black; /* Remove border for smoother appearance */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px; /* Adjusted to half of height */
+    font-size: 20px;
+    cursor: pointer;
+    background: rgb(105, 63, 177);
+    color: white;
+    flex-direction: row;
+    margin: 10px;
+    padding: 0 20px; /* Adjusted padding to maintain height */
+    
+    border:2px 2px black; /* Remove border for smoother appearance */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit2:hover {
+    background: rgb(95, 53, 167); /* Darken the color on hover */
+    transform: translateY(-2px); /* Add slight lift effect */
+}
+.submit:hover {
+    background: #4A0C82; /* Darken the color on hover */
+    transform: translateY(-2px); /* Add slight lift effect */
 }
 .signlogin{
     display: flex;

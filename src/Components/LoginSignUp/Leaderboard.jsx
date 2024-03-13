@@ -65,6 +65,19 @@ const firstName = location.state && location.state.firstName;
     }
      navigate('/'); // Use useNavigate hook for navigation
   };
+
+  const clearScores = async (e) => {
+    try{
+    await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/delete/${firstName}`);
+    await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/0`);
+
+    }
+     catch (error) {
+      console.error('Error submitting score:', error);
+    }
+    navigate('/'); // Use useNavigate hook for navigation
+
+  }
   
   
   const renderScores = () => {
@@ -93,10 +106,12 @@ const firstName = location.state && location.state.firstName;
   return (
     <div>
       <h2>&nbsp;Binge Week 2024🎉</h2>
+      <button className="submit2" onClick={clearScores()}>Reset Points to 0</button>
+
       <form onSubmit={handleSubmit}>
       <div className='inputs' style={{flexDirection:"column"}} >
         <label style={{flexDirection:"column", margin:"auto"}}>
-          Score:
+          Add points:
           <input className='input' style={{flexDirection:"column"}} type="number" value={score} onChange={(e) => setScore(e.target.value)} />
         </label>
         <label style={{flexDirection:"column"}}>
