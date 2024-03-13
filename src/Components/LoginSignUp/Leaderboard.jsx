@@ -51,14 +51,18 @@ const firstName = location.state && location.state.firstName;
           ...updatedScores[existingEntryIndex], // Maintain other properties
           score: parseInt(updatedScores[existingEntryIndex].score) + parseInt(score) // Add the new score
         };
-        console.log('Old score'+ oldscore);
         if (oldscore > updatedScores[existingEntryIndex].score){
+          console.log('Old score >'+ oldscore+ ' new score'+ updatedScores[existingEntryIndex].score );
           await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/delete/${firstName}}`);
+          console.log('deleted')
           await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${updatedScores[existingEntryIndex].score}`);
-          console.log("new score"+updatedScores[existingEntryIndex].score)      
+          console.log("new score"+updatedScores[existingEntryIndex].score)     
         }
-        await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${updatedScores[existingEntryIndex].score}`);
+        else{
+          await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${updatedScores[existingEntryIndex].score}`);
+        }
         setLeaderboardData(updatedScores); // Update the state
+        
       } else {
         // If the name doesn't exist in the leaderboard, add a new entry
         await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${score}`);
