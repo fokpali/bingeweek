@@ -47,10 +47,15 @@ const firstName = location.state && location.state.firstName;
       if (existingEntryIndex !== -1) {
         // If the name already exists in the leaderboard, update the score by adding the new score
         const updatedScores = [...leaderboardData]; // Make a copy of the array
+        const oldscore = updatedScores[existingEntryIndex].score;
         updatedScores[existingEntryIndex] = { // Update the specific entry
           ...updatedScores[existingEntryIndex], // Maintain other properties
           score: parseInt(updatedScores[existingEntryIndex].score) + parseInt(score) // Add the new score
         };
+        console.log('Old score'+ oldscore);
+        if (oldscore>updatedScores[existingEntryIndex].score){
+          console.log('damn')        
+        }
         await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${updatedScores[existingEntryIndex].score}`);
         setLeaderboardData(updatedScores); // Update the state
       } else {
@@ -85,7 +90,7 @@ const firstName = location.state && location.state.firstName;
     leaderboardData.sort((a, b) => parseInt(b.score) - parseInt(a.score));
 
     // Select top 5 scores
-    const top5Scores = leaderboardData.slice(0, 10);
+    const top5Scores = leaderboardData.slice(0, 20);
 
     // Generate JSX elements for each score entry
     return (
@@ -106,7 +111,7 @@ const firstName = location.state && location.state.firstName;
   return (
     <div>
       <h2>&nbsp;Binge Week 2024🎉</h2>
-      <button className="submit2" onClick={clearScores}>Reset Points to 0</button>
+      <button className="submit2" onClick={clearScores()}>Reset Points to 0</button>
 
       <form onSubmit={handleSubmit}>
       <div className='inputs' style={{flexDirection:"column"}} >
