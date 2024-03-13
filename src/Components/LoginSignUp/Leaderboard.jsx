@@ -52,9 +52,10 @@ const firstName = location.state && location.state.firstName;
           score: parseInt(updatedScores[existingEntryIndex].score) + parseInt(score) // Add the new score
         };
         console.log('Old score'+ oldscore);
-        if (oldscore>updatedScores[existingEntryIndex].score){
-          console.log('damn, ')  
-          console.log(updatedScores[existingEntryIndex].score)      
+        if (oldscore > updatedScores[existingEntryIndex].score){
+          await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/delete/${firstName}}`);
+          await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${updatedScores[existingEntryIndex].score}`);
+          console.log("new score"+updatedScores[existingEntryIndex].score)      
         }
         await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${updatedScores[existingEntryIndex].score}`);
         setLeaderboardData(updatedScores); // Update the state
