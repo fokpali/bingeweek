@@ -82,7 +82,7 @@ const SignUp = () => {
       await signUp(email, password, firstName); // Pass first name to signUp function
       // Sign up successful, handle redirection or state update
       console.log('Sign up successful');
-      window.location.href = '/login'; 
+      window.location.href = '/'; 
       //Go to login
       
     } catch (error) {
