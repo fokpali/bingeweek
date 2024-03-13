@@ -1,7 +1,7 @@
 // src/Scoreboard.js
 import './LoginSignUp.css';
 import Login from './Login';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import React, { useState, useEffect } from 'react';
@@ -13,6 +13,8 @@ const Scoreboard = () => {
   const [score, setScore] = useState('');
   const [leaderboardData, setLeaderboardData] = useState([]);
   const location = useLocation();
+  const navigate = useNavigate(); // Use useNavigate hook for navigation
+
   // Access the firstName from the location state
 const firstName = location.state && location.state.firstName;
   useEffect(() => {
@@ -61,7 +63,7 @@ const firstName = location.state && location.state.firstName;
     } catch (error) {
       console.error('Error submitting score:', error);
     }
-    window.location.href = '/'; 
+     navigate('/'); // Use useNavigate hook for navigation
   };
   
   

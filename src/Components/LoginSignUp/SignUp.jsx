@@ -1,58 +1,4 @@
-/*import React, { useState } from "react";
-import firebase from "./firebase";
-import './LoginSignUp.css';
-
-const LoginSignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleLogin = async (e) => {
-    e.preventDefault(); // Prevent form submission
-    try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
-      // Login successful, handle redirection or state update
-      console.log("Login successful");
-    } catch (error) {
-      // Handle login error
-      console.error("Login error:", error.message);
-    }
-  };
-
-  return (
-    <div className="container">
-      <div className="header">
-        <div className="text"></div>
-        <div className="underline"></div>
-      </div>
-      <form className="inputs" onSubmit={handleLogin}>
-        <div className="input">
-          <input
-            type="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="input">
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="submit-container">
-          <button type="submit" className="submit">
-            Login
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-};
-
-export default LoginSignUp;*/
-// SignUp.js
+import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate from react-router-dom
 import './LoginSignUp.css';
 import React, { useState } from 'react';
 import { auth, firestore } from './firebase'; // Import auth and firestore from your firebase module
@@ -76,13 +22,15 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Use useNavigate hook for navigation
+
 
   const handleSignUp = async () => {
     try {
       await signUp(email, password, firstName); // Pass first name to signUp function
       // Sign up successful, handle redirection or state update
       console.log('Sign up successful');
-      window.location.href = '/'; 
+      navigate('/login'); 
       //Go to login
       
     } catch (error) {
