@@ -1,1 +1,2 @@
-/lb/* http://dreamlo.com/lb/:splat 200!
+/api/* http://dreamlo.com/lb/:splat 200!
+
