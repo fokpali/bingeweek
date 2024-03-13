@@ -106,7 +106,7 @@ const firstName = location.state && location.state.firstName;
   return (
     <div>
       <h2>&nbsp;Binge Week 2024🎉</h2>
-      <button className="submit2" onClick={clearScores()}>Reset Points to 0</button>
+      <button className="submit2" onClick={clearScores}>Reset Points to 0</button>
 
       <form onSubmit={handleSubmit}>
       <div className='inputs' style={{flexDirection:"column"}} >

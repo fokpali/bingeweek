@@ -104,8 +104,6 @@
     cursor: pointer;
     margin: auto;
     border:2px 2px black; /* Remove border for smoother appearance */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .submit2 {
@@ -122,12 +120,8 @@
     flex-direction: row;
     margin: 10px;
     padding: 0 20px; /* Adjusted padding to maintain height */
-    
     border:2px 2px black; /* Remove border for smoother appearance */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
+ }
 
 
 .signlogin{
