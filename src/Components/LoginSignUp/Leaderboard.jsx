@@ -18,7 +18,7 @@ const firstName = location.state && location.state.firstName;
   useEffect(() => {
     const fetchScores = async () => {
       try {
-        const response = await axios.get('/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/json');
+        const response = await axios.get('/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/json');
         setLeaderboardData(response.data.dreamlo.leaderboard.entry);
       } catch (error) {
         console.error('Error fetching leaderboard data:', error);
@@ -30,7 +30,7 @@ const firstName = location.state && location.state.firstName;
 
   const fetchScores = async () => {
    
-      const response = await axios.get('/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/json');
+      const response = await axios.get('/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/json');
       
         console.log(response);
       
@@ -49,11 +49,11 @@ const firstName = location.state && location.state.firstName;
           ...updatedScores[existingEntryIndex], // Maintain other properties
           score: parseInt(updatedScores[existingEntryIndex].score) + parseInt(score) // Add the new score
         };
-        await axios.get(`/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${updatedScores[existingEntryIndex].score}`);
+        await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${updatedScores[existingEntryIndex].score}`);
         setLeaderboardData(updatedScores); // Update the state
       } else {
         // If the name doesn't exist in the leaderboard, add a new entry
-        await axios.get(`/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${score}`);
+        await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${score}`);
         setLeaderboardData([...leaderboardData, { firstName, score: parseInt(score) }]);
       }
       setScore('');
@@ -103,24 +103,26 @@ const firstName = location.state && location.state.firstName;
         </div>
         </form>
       <div>
-      </div>
-    </div>
-  );
-};
-
-export default Scoreboard;
-/**<div className='header'>How to get points 🤔</div>
+      <div className='header'>How to get points 🤔</div>
         <div className="container2">
             <div className="row">
               <span className="name"><b>Action</b></span>
               <span className="score"><b>Points</b></span>
             </div>
             <div className="row">
-              <span className="name">6x Beers (Men), 8x Beers (Women)</span>
+              <span className="name">6x Beers (Men)</span>
               <span className="score">1</span>
             </div>
             <div className="row">
-              <span className="name">16x $ Beers (Men), 12x  $ Beers (Women)</span>
+              <span className="name">8x Beers (Women)</span>
+              <span className="score">1</span>
+            </div>
+            <div className="row">
+              <span className="name">16x $ Beers (Men)</span>
+              <span className="score">1</span>
+            </div>
+            <div className="row">
+              <span className="name">12x  $ Beers (Women)</span>
               <span className="score">1</span>
             </div>
             <div className="row">
@@ -161,4 +163,11 @@ export default Scoreboard;
             </div>
             
         
-        </div> */
+        </div> 
+      </div>
+    </div>
+  );
+};
+
+export default Scoreboard;
+/***/
