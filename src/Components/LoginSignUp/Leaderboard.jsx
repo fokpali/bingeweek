@@ -43,7 +43,6 @@ const firstName = location.state && location.state.firstName;
     e.preventDefault();
     try {
       const existingEntryIndex = leaderboardData.findIndex(entry => entry.name === firstName);
-      console.log(existingEntryIndex);
       if (existingEntryIndex !== -1) {
         // If the name already exists in the leaderboard, update the score by adding the new score
         const updatedScores = [...leaderboardData]; // Make a copy of the array
@@ -54,7 +53,8 @@ const firstName = location.state && location.state.firstName;
         };
         console.log('Old score'+ oldscore);
         if (oldscore>updatedScores[existingEntryIndex].score){
-          console.log('damn')        
+          console.log('damn, ')  
+          console.log(updatedScores[existingEntryIndex].score)      
         }
         await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${updatedScores[existingEntryIndex].score}`);
         setLeaderboardData(updatedScores); // Update the state
