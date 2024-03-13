@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "/lb/*"
+  from = "/api/*"
   to = "http://dreamlo.com/:splat"
   status = 200
