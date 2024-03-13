@@ -53,7 +53,7 @@ const firstName = location.state && location.state.firstName;
         };
         if (oldscore > updatedScores[existingEntryIndex].score){
           console.log('Old score >'+ oldscore+ ' new score'+ updatedScores[existingEntryIndex].score );
-          await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/delete/${firstName}}`);
+          await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/delete/${firstName}`);
           console.log('deleted')
           await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${updatedScores[existingEntryIndex].score}`);
           console.log("new score"+updatedScores[existingEntryIndex].score)     
@@ -62,11 +62,14 @@ const firstName = location.state && location.state.firstName;
           await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${updatedScores[existingEntryIndex].score}`);
         }
         setLeaderboardData(updatedScores); // Update the state
-        
+        //setLeaderboardData(response.data.dreamlo.leaderboard.entry);
+
       } else {
         // If the name doesn't exist in the leaderboard, add a new entry
         await axios.get(`/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/add/${firstName}/${score}`);
         setLeaderboardData([...leaderboardData, { firstName, score: parseInt(score) }]);
+        //setLeaderboardData(response.data.dreamlo.leaderboard.entry);
+
       }
       setScore('');
       fetchScores(); // Refresh scoreboard after submission
