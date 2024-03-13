@@ -15,6 +15,8 @@ const Home = () => {
     const fetchScores = async () => {
       try {
         const response = await axios.get('/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/json');
+        console.log('response.data1')
+        console.log(response.data)
         setLeaderboardData(response.data.dreamlo.leaderboard.entry);
       } catch (error) {
         console.error('Error fetching leaderboard data:', error);
@@ -27,8 +29,8 @@ const Home = () => {
   const fetchScores = async () => {
    
       const response = await axios.get('/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/json');
-      
-        console.log(response);
+      console.log('response.data2')
+      console.log(response.data)
     
   };
   const renderScores = () => {
