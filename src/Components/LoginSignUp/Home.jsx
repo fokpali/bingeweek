@@ -36,7 +36,7 @@ const Home = () => {
     leaderboardData.sort((a, b) => parseInt(b.score) - parseInt(a.score));
 
     // Select top 5 scores
-    const top5Scores = leaderboardData.slice(0, 10);
+    const top5Scores = leaderboardData.slice(0, 20);
 
     // Generate JSX elements for each score entry
     return (
