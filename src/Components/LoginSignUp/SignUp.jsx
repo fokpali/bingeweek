@@ -12,7 +12,9 @@ const signUp = (email, password, firstName) => {
       // Add user's first name to firestore
       return firestore.collection('bingeweek').doc(userCredential.user.uid).set({
         email: email,
-        firstName: firstName
+        firstName: firstName,
+        points: 0
+
       });
     });
 };

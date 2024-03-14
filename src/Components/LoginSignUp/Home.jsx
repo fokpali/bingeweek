@@ -14,10 +14,10 @@ const Home = () => {
   useEffect(() => {
     const fetchScores = async () => {
       try {
-        const response = await axios.get('/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/json');
-        console.log('response.data1')
-        console.log(response.data)
-        setLeaderboardData(response.data.dreamlo.leaderboard.entry);
+        const leaderboardRef = firestore.collection('bingeweek').limit(20);
+        const snapshot = await leaderboardRef.get();
+        const leaderboardData = snapshot.docs.map(doc => doc.data());
+        setLeaderboardData(leaderboardData);
       } catch (error) {
         console.error('Error fetching leaderboard data:', error);
       }
@@ -26,29 +26,19 @@ const Home = () => {
     fetchScores();
   }, []);
 
-  const fetchScores = async () => {
-   
-      const response = await axios.get('/api/lb/9Aer_96Ftk6SjhkuZyjgkALyyXxqLcfU65gqW_Z48zUw/json');
-      console.log('response.data2')
-      console.log(response.data)
-    
-  };
   const renderScores = () => {
     // Sort entries by score value (descending order)
-    leaderboardData.sort((a, b) => parseInt(b.score) - parseInt(a.score));
-
-    // Select top 5 scores
-    const top5Scores = leaderboardData.slice(0, 20);
+    leaderboardData.sort((a, b) => parseInt(b.points) - parseInt(a.points));
 
     // Generate JSX elements for each score entry
     return (
       <div>
         <div className='header'><b>Leaderboard</b></div>
         <div className='container2'>
-          {top5Scores.map((entry, index) => (
+          {leaderboardData.map((entry, index) => (
             <div key={index} className="row">
-              <span className="name">{entry.name}</span>
-              <span className="score">{entry.score}</span>
+              <span className="name">{entry.firstName}</span>
+              <span className="score">{entry.points}</span>
             </div>
           ))}
         </div>
