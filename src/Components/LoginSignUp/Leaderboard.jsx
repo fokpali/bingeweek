@@ -68,16 +68,32 @@ console.log(firstName)
 
   const clearPoints = async () => {
     try {
-      const userRef = db.collection('bingeweek').doc(firstName);
-      await userRef.set({
-        points: 0
-      }, { merge: true });
-      navigate('/');
+      // Update score based on email
+      console.log(email)
+      firestore.collection('bingeweek').where('email', '==', email).get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            // Update the 'points' field with the new score
+            const newScore = 0;
+            firestore.collection('bingeweek').doc(doc.id).update({
+              points: newScore
+            })
+            .then(() => {
+              console.log("Score updated successfully!");
+              navigate('/');
+            })
+            .catch((error) => {
+              console.error("Error updating score: ", error);
+            });
+          });
+        })
+        .catch((error) => {
+          console.error("Error getting documents: ", error);
+        });
     } catch (error) {
-      console.error('Error clearing scores:', error);
+      console.error('Error updating score:', error);
     }
   };
-
   const renderScores = () => {
     // Sort entries by score value (descending order)
     leaderboardData.sort((a, b) => parseInt(b.score) - parseInt(a.score));
