@@ -140,11 +140,19 @@ const firstName = location.state && location.state.firstName;
               <span className="score"><b>Points</b></span>
             </div>
             <div className="row">
-              <span className="name">6x Beers (Men)</span>
+              <span className="name">Hosting a pre/event</span>
+              <span className="score">5</span>
+            </div>
+            <div className="row">
+              <span className="name">8x Beers (Men)</span>
               <span className="score">1</span>
             </div>
             <div className="row">
-              <span className="name">8x Beers (Women)</span>
+              <span className="name">6x Beers (Women)</span>
+              <span className="score">1</span>
+            </div>
+            <div className="row">
+              <span className="name">1 Wine Bottle</span>
               <span className="score">1</span>
             </div>
             <div className="row">
