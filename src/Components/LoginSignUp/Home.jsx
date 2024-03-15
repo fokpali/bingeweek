@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const fetchScores = async () => {
       try {
-        const leaderboardRef = firestore.collection('bingeweek').limit(20);
+        const leaderboardRef = firestore.collection('bingeweek');
         const snapshot = await leaderboardRef.get();
         const leaderboardData = snapshot.docs.map(doc => doc.data());
         setLeaderboardData(leaderboardData);
@@ -29,7 +29,7 @@ const Home = () => {
   const renderScores = () => {
     // Sort entries by score value (descending order)
     leaderboardData.sort((a, b) => parseInt(b.points) - parseInt(a.points));
-
+  
     // Generate JSX elements for each score entry
     return (
       <div>
